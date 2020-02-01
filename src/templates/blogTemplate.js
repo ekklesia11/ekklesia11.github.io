@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import { graphql } from "gatsby"
 
 export default function Template({
@@ -15,10 +16,17 @@ export default function Template({
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <StyledBox />
       </div>
     </div>
   )
 }
+
+const StyledBox = styled.div`
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+`
 
 export const pageQuery = graphql`
   query($path: String!) {
