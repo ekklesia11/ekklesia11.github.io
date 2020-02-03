@@ -44,7 +44,16 @@ const Layout = ({ children }) => {
           </div>
           © {new Date().getFullYear()}, Built by
           {` `}
-          <a href="https://www.chanhyun.org">Daniel</a>
+          <a
+            href="https://www.chanhyun.org"
+            style={{
+              color: "#0f4c81",
+              fontWeight: "bold",
+              textDecoration: "none",
+            }}
+          >
+            해피쿼카
+          </a>
         </footer>
       </div>
     </>

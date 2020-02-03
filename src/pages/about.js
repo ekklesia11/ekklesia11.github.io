@@ -21,9 +21,7 @@ const AboutPage = () => (
         <div>얜 초식이지만 난 아님</div>
       </div>
     </Intro>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <Link to="/">Back to the lists</Link>
   </Layout>
 )
 

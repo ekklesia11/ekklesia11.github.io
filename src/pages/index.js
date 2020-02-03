@@ -13,39 +13,22 @@ const IndexPage = ({
 }) => {
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map((edge, index) => (
-      <PostLink key={edge.node.id} index={index} post={edge.node} />
-    ))
+    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
     .reverse()
 
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Blogs</h1>
-      <ListBox>
-        <TableHead>
-          <div>No.</div>
-          <div>title</div>
-          <div>date</div>
-        </TableHead>
-        <div>{Posts}</div>
-      </ListBox>
+      <h4>Blogs</h4>
+      <ListBox>{Posts}</ListBox>
     </Layout>
   )
 }
 
-const ListBox = styled.div``
-
-const TableHead = styled.div`
+const ListBox = styled.div`
   display: flex;
-
-  div:nth-child(1) {
-    width: 100px;
-    text-align: center;
-  }
-  div:nth-child(2) {
-    width: 300px;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
 `
 
 export default IndexPage
