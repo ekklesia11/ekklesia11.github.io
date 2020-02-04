@@ -7,9 +7,12 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Nav from "./nav"
+import quokkaGif from "../images/quokka.gif"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -33,16 +36,31 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
+        <Nav />
+        <StyledMain>{children}</StyledMain>
+        <footer style={{ textAlign: "center", marginTop: "50px" }}>
+          <div style={{ textAlign: "center" }}>
+            <img src={quokkaGif} alt="me" />
+          </div>
+          © {new Date().getFullYear()}, Built by
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a
+            href="https://www.chanhyun.org"
+            style={{
+              color: "#0f4c81",
+              fontWeight: "bold",
+              textDecoration: "none",
+            }}
+          >
+            해피쿼카
+          </a>
         </footer>
       </div>
     </>
   )
 }
+
+const StyledMain = styled.main``
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
