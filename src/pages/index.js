@@ -21,7 +21,7 @@ const IndexPage = ({
       <SEO title="Home" />
       <h4>Blogs</h4>
       <ListBox>{Posts}</ListBox>
-      <div>test</div>
+      <div>week test</div>
     </Layout>
   )
 }
