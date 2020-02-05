@@ -31,6 +31,8 @@ const Nav = () => {
 
 const StyledNav = styled.div`
   margin-bottom: 3rem;
+  display: flex;
+  justify-content: flex-end;
 `
 
 export default Nav

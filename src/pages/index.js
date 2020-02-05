@@ -16,12 +16,31 @@ const IndexPage = ({
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
     .reverse()
 
+  const postShowingLimit = 6
+
+  const pagination = {
+    page: Math.ceil(Posts.length / postShowingLimit),
+    total: Posts.length,
+  }
+
+  const paginate = () => {
+    let pages = []
+    for (let i = 1; i <= pagination.page; i++) {
+      pages.push(i.toString())
+    }
+    return pages
+  }
+
   return (
     <Layout>
       <SEO title="Home" />
       <h4>Blogs</h4>
       <ListBox>{Posts}</ListBox>
-      <div>week test</div>
+      <div>
+        {paginate().map(page => (
+          <Page style={{ width: "20px" }}>{page}</Page>
+        ))}
+      </div>
     </Layout>
   )
 }
@@ -30,6 +49,12 @@ const ListBox = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+`
+
+const Page = styled.span`
+  background-color: #0f4c81;
+  color: #fff;
+  border-radius: 5px;
 `
 
 export default IndexPage

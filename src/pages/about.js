@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import BackToList from "../components/back-to-list"
 
 const AboutPage = () => (
   <Layout>
@@ -16,12 +16,11 @@ const AboutPage = () => (
         </div>
       </div>
       <div>
-        <div>쿼카를 닮은 개발자 (Sorry, quokkas.)</div>
+        <div>개발자 해피쿼카</div>
         <div>평화 및 행복주의자</div>
-        <div>얜 초식이지만 난 아님</div>
       </div>
     </Intro>
-    <Link to="/">Back to the lists</Link>
+    <BackToList />
   </Layout>
 )
 

@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -16,25 +15,20 @@ export default function Template({
       <SEO title={frontmatter.title} />
       <div className="blog-post-container">
         <div className="blog-post">
+          <h3>{frontmatter.date}</h3>
           <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-          <StyledBox />
         </div>
       </div>
-      <BackToList />
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <BackToList />
+      </div>
     </Layout>
   )
 }
-
-const StyledBox = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: tomato;
-`
 
 export const pageQuery = graphql`
   query($path: String!) {

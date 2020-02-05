@@ -60,7 +60,7 @@ const Layout = ({ children }) => {
   )
 }
 
-const StyledMain = styled.main``
+const StyledMain = styled.div``
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

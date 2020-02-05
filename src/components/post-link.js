@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const PostLink = ({ post }) => {
-  console.log(post)
   return (
     <Card>
       <Link to={post.frontmatter.path} style={{ textDecoration: "none" }}>
@@ -12,7 +11,9 @@ const PostLink = ({ post }) => {
           <div className="title">{post.frontmatter.title}</div>
         </CardHeader>
         <CardBody>
-          <div>{post.excerpt}</div>
+          <div style={{ height: "160px", overflow: "hidden" }}>
+            {post.excerpt}
+          </div>
         </CardBody>
       </Link>
     </Card>
@@ -37,7 +38,7 @@ const Card = styled.div`
 const CardHeader = styled.div`
   position: relative;
   width: 100%
-  height: 400px;
+  height: 92px;
   border-radius: 20px 20px 0 0;
   background-color: #d1d8e0;
   padding: 10px 15px;
@@ -59,7 +60,7 @@ const CardBody = styled.div`
   width: 100%;
   height: 218px;
   border-radius: 0 0 20px 20px;
-  padding: 20px 15px;
+  padding: 20px;
   color: #4b6584;
 `
 
