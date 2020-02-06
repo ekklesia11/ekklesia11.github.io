@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
@@ -11,6 +11,8 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
+  const [active, setActive] = useState("1")
+
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
@@ -26,9 +28,26 @@ const IndexPage = ({
   const paginate = () => {
     let pages = []
     for (let i = 1; i <= pagination.page; i++) {
-      pages.push(i.toString())
+      pages.push(
+        <Page
+          id={i}
+          style={{
+            width: "30px",
+            height: "40px",
+            backgroundColor: `${i === active ? "#0f4c81" : "#fff"}`,
+            color: `${i === active ? "#fff" : "#000"}`,
+          }}
+          onClick={activatePage}
+        >
+          {i.toString()}
+        </Page>
+      )
     }
     return pages
+  }
+
+  const activatePage = e => {
+    setActive(e.target.id)
   }
 
   return (
@@ -36,11 +55,7 @@ const IndexPage = ({
       <SEO title="Home" />
       <h4>Blogs</h4>
       <ListBox>{Posts}</ListBox>
-      <div>
-        {paginate().map(page => (
-          <Page style={{ width: "20px" }}>{page}</Page>
-        ))}
-      </div>
+      <Pagination>{paginate()}</Pagination>
     </Layout>
   )
 }
@@ -51,10 +66,19 @@ const ListBox = styled.div`
   flex-wrap: wrap;
 `
 
-const Page = styled.span`
-  background-color: #0f4c81;
-  color: #fff;
+const Page = styled.div`
+  background-color: #fff;
+  color: #000;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`
+
+const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
 `
 
 export default IndexPage
