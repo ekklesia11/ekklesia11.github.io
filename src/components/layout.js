@@ -11,7 +11,6 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import Nav from "./nav"
 import quokkaGif from "../images/quokka.gif"
 import "./layout.css"
 
@@ -27,7 +26,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -36,7 +35,6 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <Nav />
         <StyledMain>{children}</StyledMain>
         <footer style={{ textAlign: "center", marginTop: "50px" }}>
           <div style={{ textAlign: "center" }}>
@@ -56,7 +54,7 @@ const Layout = ({ children }) => {
           </a>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

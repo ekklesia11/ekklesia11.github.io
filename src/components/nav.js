@@ -1,38 +1,45 @@
 import React from "react"
 import styled from "styled-components"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faInstagram, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Link } from "gatsby"
 
 const Nav = () => {
   return (
     <StyledNav>
-      <Link
+      <StyledLink
         to="/"
-        style={{
-          color: "#0f4c81",
-          textDecoration: "none",
-          marginRight: "12px",
-        }}
       >
-        home
-      </Link>
-      <Link
+        Blogs
+      </StyledLink>
+      <StyledLink
         to="/about"
-        style={{
-          color: "#0f4c81",
-          textDecoration: "none",
-          marginRight: "12px",
-        }}
       >
-        about
-      </Link>
+        About
+      </StyledLink>
+        <StyledSNS icon={faGithub} />
+        <StyledSNS icon={faTwitter} />
+        <StyledSNS icon={faInstagram} />
+        <StyledSNS icon={faFacebook} />
     </StyledNav>
   )
 }
 
 const StyledNav = styled.div`
-  margin-bottom: 3rem;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+`
+
+const StyledLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  margin-right: 12px;
+`
+
+const StyledSNS = styled(FontAwesomeIcon)`
+  color: #fff;
+  margin-right: 12px;
+  cursor: pointer;
 `
 
 export default Nav
